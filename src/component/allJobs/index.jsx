@@ -1,4 +1,19 @@
-const AllJobs = ()=> <h1>AllJobs Section</h1>
+import Header from "../Header";
+
+const AllJobs = ()=> {
+
+
+
+    return (
+
+        <div>
+            <Header/>
+            <h1>AllJobs Section</h1>
+
+        </div>
+
+    )
+}
 
 
 
