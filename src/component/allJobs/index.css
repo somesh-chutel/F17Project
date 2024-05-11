@@ -1,18 +1,16 @@
 .filter-allJobs-cont{
     width: 100%;
-    height: 100vh;
     background-color: black;
     display: flex;
     justify-content: center;
 }
 .filter-cont{
     width: 35%;
-    height: 100%;
     border: 1px solid white;
     margin-right: 2px;
 }
 .display-all-jobs-cont{
     width: 65%;
-    height: 100%;
     border: 1px solid white;
+    padding: 20px;
 }

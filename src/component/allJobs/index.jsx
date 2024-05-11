@@ -52,7 +52,15 @@ const AllJobs = ()=> {
 
                 <div className="display-all-jobs-cont">
 
-                    <DisplayAllJobs/>
+                    <ul>
+
+                        {allValues.jobsList.map(each=>
+                            <DisplayAllJobs key={each.id} jobsData = {each}/>
+                        )}
+
+                    </ul>
+
+                    
                 </div>
 
             </div>
