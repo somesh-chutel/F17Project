@@ -10,14 +10,17 @@ const AllJobs = ()=> {
     const token = Cookies.get("jwtToken");
 
     const [allValues,setValues] = useState({
-        jobsList:[]
+        jobsList:[],
+        searchInput:"",
+        empType:[],
+        sallryRange : ""
     });
 
     useEffect(()=>{
 
         const fetchJobsData = async()=>{
 
-            const url = "https://apis.ccbp.in/jobs";
+            const url = `https://apis.ccbp.in/jobs?employment_type=${allValues.empType}&minimum_package=${allValues.sallryRange}&search=${allValues.searchInput}`;
 
             const options = {
                 method: 'GET',
@@ -36,7 +39,24 @@ const AllJobs = ()=> {
         }
 
         fetchJobsData();
-    },[])
+    },[allValues.searchInput,allValues.empType])
+
+
+
+    const onChangeSearchInput = (e)=>{
+        if(e.key==="Enter"){
+
+            setValues({...allValues,searchInput:e.target.value});
+
+        }
+        
+    }
+
+    const onChangeEmpType = (value)=>{
+
+        setValues({...allValues,empType:value});
+
+    }
 
     return (
 
@@ -46,11 +66,15 @@ const AllJobs = ()=> {
 
                 <div className="filter-cont">
 
-                        <FilterSection/>
+                        <FilterSection empTypeChange = {onChangeEmpType}/>
 
                 </div>
 
                 <div className="display-all-jobs-cont">
+                    
+                    <input onKeyDown={onChangeSearchInput} type="search" className="form-control w-75"/>
+
+                    <br />
 
                     <ul>
 
