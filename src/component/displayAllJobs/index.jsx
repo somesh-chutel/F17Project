@@ -9,7 +9,7 @@ const DisplayAllJobs = (props)=>{
 
     return (
 
-        <Link to={`/jobs/${jobsData.id}`}>
+        <Link to={`/jobs/${jobsData.id}`} className="my-link">
                 <li className='jobs-card rounded'>
 
                             <div className='web-logo-rating-cont'>
